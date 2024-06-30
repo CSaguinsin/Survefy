@@ -18,11 +18,12 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build and tag
-        run: |
-          docker build -t saginsin/survefy:latest .
-          docker tag bf17484fccaba9fc01e1ad1ddb452732c4307b6376c35f59d3adf59f44e4664a saginsin/survefy:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: saginsin/app-name:latest
 
-      - name: Push to DockerHub
-        run: docker push saginsin/survefy:latest
 
