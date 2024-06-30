@@ -25,7 +25,12 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker buildx build \
-            --file ./docker-compose.yml \
+            --file Dockerfile \
             --tag your-dockerhub-username/survefy:latest \
             --push .
+
+      - name: Deploy to Docker Compose
+        run: |
+          docker-compose up -d
+
 
