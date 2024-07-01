@@ -18,3 +18,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+# Ignore Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Ignore GitHub Actions workflow
+.github/workflows/pipeline.yml

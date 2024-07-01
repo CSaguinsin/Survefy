@@ -9,7 +9,7 @@
     {{-- <link href="public/build/manifest.json" rel="manifest"> --}}
     <link href="../../../../resources/css/app.css" rel="stylesheet">
     {{-- <link href="resources/css/app.css" rel="stylesheet"> --}}
-
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles()
@@ -18,11 +18,8 @@
 </head>
 <body>
 
-    @if (Route::has('login'))
-        @auth
             @include('livewire.guest.navigation') <!-- navigation bar for guests -->
-        @endauth
-    @endif
+
     <main>
         @yield('content')
     </main>

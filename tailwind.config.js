@@ -6,6 +6,9 @@ module.exports = {
             fontFamily: {
                 sans: ['General Sans', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                customBlue: '#3F4BF2',
+              },
         },
     },
     variants: {
