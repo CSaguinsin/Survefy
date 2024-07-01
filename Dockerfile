@@ -5,6 +5,10 @@ FROM php:8.2.12-apache as web
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
+    unzip \
+    nodejs \
+    npm \
+    curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache mod_rewrite for URL rewriting
@@ -31,5 +35,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install project dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Set permissions
+# Ensure the build directory exists and set permissions
+RUN mkdir -p /var/www/html/public/build && chown -R www-data:www-data /var/www/html/public/build
+
+# Install Node.js dependencies
+RUN npm install
+
+# Build assets with Vite
+RUN npm run build
+
+# Set permissions for other necessary directories
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build
+
+# Expose port 80 for the web server
+EXPOSE 80
+
+# Start Apache in the foreground
+CMD ["apache2-foreground"]

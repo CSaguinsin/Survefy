@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sans: ['General Sans', ...defaultTheme.fontFamily.sans],
             },
         },
     },
@@ -23,9 +23,12 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+         "./node_modules/flowbite/**/*.js"
     ],
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('daisyui'),
+        require('flowbite/plugin'),
     ],
 }
