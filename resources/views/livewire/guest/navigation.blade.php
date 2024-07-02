@@ -20,8 +20,8 @@
             x-transition
                 tabindex="0"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li><a class="font-sans">Home</a></li>
-                <li><a>About</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('about') }}">About</a></li>
                 <li><a>Contact Us</a></li>
             </ul>
         </div>
@@ -31,7 +31,11 @@
         <img src="{{ asset('assets/logo/survefyLogo.png') }}" class="h-[2rem]" />
         {{-- <h1 class="font-bold font-sans text-[4rem]">Survefy</h1> --}}
     </div>
+    @if (Route::has('register'))
     <div class="navbar-end pt-[21px]">
-        <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-customBlue text-white">Start Now</button>
+        <a href="{{ route('login') }}">
+            <button  class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-customBlue text-white">Start Now</button>
+        </a>
     </div>
+    @endif
 </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Survey | Get create products that matters - @yield('title')</title>
+    <title>Survefy | Create products that matters - @yield('title')</title>
     <link href="../../../../public/build/.vite/manifest.json" rel="manifest">
     {{-- <link href="public/build/manifest.json" rel="manifest"> --}}
     <link href="../../../../resources/css/app.css" rel="stylesheet">
@@ -23,6 +23,10 @@
     <main>
         @yield('content')
     </main>
+
+    @guest
+            @include('livewire.guest.footer') <!-- this footer is only visible for guest -->
+    @endguest
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 </html>

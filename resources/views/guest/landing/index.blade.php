@@ -2,4 +2,6 @@
 @section('title', 'Home')
 @section('content')
       @include('guest.landing.hero')
+      @include('guest.landing.features')
+      @include('guest.landing.cta')
 @endsection
