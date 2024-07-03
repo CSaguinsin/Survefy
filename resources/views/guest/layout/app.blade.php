@@ -18,7 +18,13 @@
 </head>
 <body>
 
+    @if (Route::has('login'))
+        @auth
+            @include('livewire.authnavbar') <!-- navigation bar for authenticated users -->
+        @else
             @include('livewire.guest.navigation') <!-- navigation bar for guests -->
+        @endauth
+    @endif
 
     <main>
         @yield('content')

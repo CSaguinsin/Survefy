@@ -1,7 +1,7 @@
 <section class="pt-[72px]">
     <div class="flex lg:space-x-[10rem] lg:px-[72px] lg:w-full md:w-[700px] md:mx-auto sm:w-[200px] sm:mx-auto">
         <div class="lg:w-[515px] lg:text-left md:w-full sm:w-full md:text-center sm:text-center mx-auto">
-            <h1 class="font-bold lg:text-left lg:text-[58px] md:text-[42px] text-center sm:text-[24px]">
+            <h1 class="leading-none  font-bold lg:text-left lg:text-[58px] md:text-[42px] text-center sm:text-[24px]">
                 Collect <span class="text-customBlue">Insights</span>, Build <span class="text-customBlue">Better</span>,
                 Ship Products that <span class="text-customBlue">Matter</span>
             </h1>
