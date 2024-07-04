@@ -3,22 +3,29 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Model\Feedback;
+use App\Models\FeedbackBoard;
 
 class AddFeedbackBoard extends Component
 {
+    public $boardname;
 
-   public $title;
+    public function save()
+    {
+        $this->validate([
+            'boardname' => 'required|string|max:255',
+        ]);
 
-   public function save()
-   {
-       $this->validate([
-           'title' => 'required',
-       ]);
+        FeedbackBoard::create([
+            'boardname' => $this->boardname,
+        ]);
 
-       Feedbacks::create([
-           'title' => $this->title,
-       ]);
+        session()->flash('success', 'Board created successfully!');
+
+        // Reset the form field
+        $this->reset('boardname');
+
+        // Redirect to the dashboard route to refresh the page
+        return redirect()->route('dashboard');
     }
 
     public function render()

@@ -29,6 +29,8 @@ Route::middleware('auth') ->group(function (){
     Route::get('/dashboard',
         [PagesController::class, 'dashboard'])
             ->name('dashboard');
+
+            
 });
 
 Route::middleware('guest')->group(function () {
