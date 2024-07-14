@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('feedback');  // Change this line
+            $table->string('title')->nullable();
+            $table->string('boardname');
+            $table->longText('feedback')->nullable();  // Change this line
             $table->timestamps();
         });
     }

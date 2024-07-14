@@ -15,6 +15,10 @@
         @livewireStyles()
         <!-- Other head content -->
         @livewireScripts
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="{{ asset('survefyLogo.png') }}">
+
 </head>
 <body>
 

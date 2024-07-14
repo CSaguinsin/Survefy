@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feedback extends Model
 {
-    protected $table ='feedbacks';
+    protected $table = 'feedbacks';
     use HasFactory;
-    protected $fillable = ['title', 'description'];
 
-    public function show($id)
-     {
-        $feedbacks = Feedbacks::findOrFail($id);
-     }
+    protected $fillable = [
+        'title',
+        'boardname',
+        'feedback'
+    ];
 }
+

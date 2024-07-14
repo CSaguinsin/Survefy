@@ -10,7 +10,8 @@
         @endif
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+<!-- Favicon -->
+<link rel="shortcut icon" href="{{ asset('survefyLogo.png') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

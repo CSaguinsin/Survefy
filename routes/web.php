@@ -10,13 +10,16 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Livewire\FeedbackDashboard;
+use App\Models\Feedback;
+use App\Models\FeedbackBoard;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web routes for your application. Thesea
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
@@ -27,10 +30,14 @@ Route::get('/about', [PagesController::class, 'about'])->name('about');
 
 Route::middleware('auth') ->group(function (){
     Route::get('/dashboard',
-        [PagesController::class, 'dashboard'])
-            ->name('dashboard');
+            [PagesController::class, 'dashboard'])->name('dashboard');
 
-            
+    Route::get('/profile/feedbackdashboard/{id}', [PagesController::class, 'feedbackDashboard'])->name('profile.feedbackdashboard');
+
+
+
+
+
 });
 
 Route::middleware('guest')->group(function () {
