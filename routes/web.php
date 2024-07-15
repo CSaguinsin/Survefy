@@ -13,6 +13,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Livewire\FeedbackDashboard;
 use App\Models\Feedback;
 use App\Models\FeedbackBoard;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +34,10 @@ Route::middleware('auth') ->group(function (){
             [PagesController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/profile/feedbackdashboard/{id}', [PagesController::class, 'feedbackDashboard'])->name('profile.feedbackdashboard');
-
-
-
-
-
 });
+
+Route::get('/public/feedback/{boardId}', [FeedbackController::class, 'publicView'])->name('public.feedback');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

@@ -32,4 +32,3 @@ class FeedbackDashboard extends Component
         return view('livewire.feedback-dashboard', ['boardname' => $this->boardname]);
     }
 }
-
