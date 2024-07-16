@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('boardname');
-            $table->longText('feedback')->nullable();  // Change this line
+            $table->longText('feedback')->nullable();
+            $table->unsignedBigInteger('feedbackboard_id'); // Add this line
             $table->timestamps();
+
+            // Assuming you have a feedbackboard table
+            $table->foreign('feedbackboard_id')->references('id')->on('feedbackboard')->onDelete('cascade'); // Add this line
         });
     }
 
@@ -25,6 +28,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('feedbacks', function (Blueprint $table) {
+            $table->dropForeign(['feedbackboard_id']); // Add this line
+        });
+
         Schema::dropIfExists('feedbacks');
     }
 };

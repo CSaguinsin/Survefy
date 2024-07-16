@@ -17,6 +17,8 @@
 <body>
     <div class="container mx-auto">
         <livewire:feedback-dashboard :boardId="$boardId" />
+        <Livewire:add-feedback :boardId="$boardId"/>
+
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts

@@ -12,7 +12,6 @@ class Feedback extends Model
 
     protected $fillable = [
         'title',
-        'boardname',
         'feedback'
     ];
 }
