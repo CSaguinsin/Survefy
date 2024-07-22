@@ -1,6 +1,5 @@
 <?php
 
-// app/Models/FeedbackBoard.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,5 +14,11 @@ class FeedbackBoard extends Model
     protected $fillable = [
         'boardname',
     ];
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class, 'feedbackboard_id');
+    }
 }
+
 

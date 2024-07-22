@@ -7,33 +7,17 @@ use Livewire\Component;
 
 class FeedbackDisplay extends Component
 {
-    public $title;
-    public $feedback;
+    public $feedbackboard_id;
 
-    protected function rules()
+    public function mount($feedbackboard_id)
     {
-        return [
-            'title' => 'required|string|max:255',
-            'feedback' => 'required|string',
-        ];
-    }
-
-    public function save()
-    {
-        $this->validate([
-            'title' => 'required|string|max:255',
-            'feedback' => 'required|string',
-        ]);
-
-        Feedback::create([
-            'title' => $this->title,
-            'feedback' => $this->feedback,
-        ]);
+        $this->feedbackboard_id = $feedbackboard_id;
     }
 
     public function render()
     {
-        $feedbacks = Feedback::all(); // Fetch all feedbacks
+        $feedbacks = Feedback::where('feedbackboard_id', $this->feedbackboard_id)->get();
         return view('livewire.feedback-display', compact('feedbacks'));
     }
 }
+

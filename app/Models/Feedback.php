@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feedback extends Model
 {
-    protected $table = 'feedbacks';
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'feedback'
-    ];
+    protected $fillable = ['title', 'feedback', 'feedbackboard_id'];
+
+    protected $table = 'feedbacks'; // Explicitly specify the table name
+
+    public function feedbackboard()
+    {
+        return $this->belongsTo(FeedbackBoard::class, 'feedbackboard_id');
+    }
 }
+
 
