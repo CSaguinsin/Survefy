@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire;
 
 use Livewire\Component;
@@ -35,12 +36,12 @@ class AddFeedback extends Component
             'feedback' => $this->feedback,
             'feedbackboard_id' => $this->feedbackboard_id,
         ]);
- 
+
         Log::info('Feedback created', ['feedback' => $feedback]);
 
         session()->flash('success', 'Feedback added successfully!');
 
-        $this->reset('title', 'feedback', 'feedbackboard_id');
+        $this->reset('title', 'feedback');
 
         return redirect()->route('public.feedback', ['boardId' => $this->feedbackboard_id]);
     }
@@ -50,4 +51,3 @@ class AddFeedback extends Component
         return view('livewire.add-feedback');
     }
 }
-

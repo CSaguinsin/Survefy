@@ -21,6 +21,15 @@ class FeedbackDashboard extends Component
         ];
     }
 
+    public function delete($boardId)
+    {
+        $boardname = FeedbackBoard::findOrFail($boardId);
+        $boardname->delete();
+
+        // Redirect to the dashboard route
+        return redirect()->route('dashboard');
+    }
+
     public function mount($boardId)
     {
         $this->boardId = $boardId;
