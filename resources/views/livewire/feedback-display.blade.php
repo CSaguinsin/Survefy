@@ -9,17 +9,21 @@
             </div>
             @auth
             <div class="flex flex-col space-y-6 pr-8px ml-auto">
-                <details class="dropdown" x-data="{ summaryText: localStorage.getItem('summaryText_{{ $feedback->id }}') || '⭐ Options' }" x-ref="dropdown">
+                <details class="dropdown" x-data="{ summaryText: '{{ $feedback->status }}' }" x-ref="dropdown">
                     <summary class="btn m-1" x-text="summaryText">⭐ Options</summary>
                     <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <li><a href="#" x-on:click="summaryText = '🚧 Work In progress'; localStorage.setItem('summaryText_{{ $feedback->id }}', '🚧 Work In progress'); $refs.dropdown.removeAttribute('open')">🚧 Work In progress</a></li>
-                        <li><a href="#" x-on:click="summaryText = '✅ Shipped'; localStorage.setItem('summaryText_{{ $feedback->id }}', '✅ Shipped'); $refs.dropdown.removeAttribute('open')">✅ Shipped</a></li>
-                        <li><a href="#" x-on:click="summaryText = '❌ Cancelled'; localStorage.setItem('summaryText_{{ $feedback->id }}', '❌ Cancelled'); $refs.dropdown.removeAttribute('open')">❌ Cancelled</a></li>
+                        <li><a href="#" x-on:click="summaryText = '🚧 Work In progress'; $wire.updateStatus({{ $feedback->id }}, '🚧 Work In progress'); $refs.dropdown.removeAttribute('open')">🚧 Work In progress</a></li>
+                        <li><a href="#" x-on:click="summaryText = '✅ Shipped'; $wire.updateStatus({{ $feedback->id }}, '✅ Shipped'); $refs.dropdown.removeAttribute('open')">✅ Shipped</a></li>
+                        <li><a href="#" x-on:click="summaryText = '❌ Cancelled'; $wire.updateStatus({{ $feedback->id }}, '❌ Cancelled'); $refs.dropdown.removeAttribute('open')">❌ Cancelled</a></li>
                     </ul>
                 </details>
                 <button wire:click="delete({{ $feedback->id }})" class="btn btn-ghost">
                     ❌ Delete
                 </button>
+            </div>
+            @else
+            <div class="flex flex-col pr-8px ml-auto">
+                <p class="mb-2 text-5 text-gray-900 dark:text-white">{{ $feedback->status }}</p>
             </div>
             @endauth
         </div>

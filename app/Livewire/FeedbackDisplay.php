@@ -14,11 +14,11 @@ class FeedbackDisplay extends Component
         $this->feedbackboard_id = $feedbackboard_id;
     }
 
-    public function delete($feedbackId)
+    public function updateStatus($feedbackId, $status)
     {
         $feedback = Feedback::findOrFail($feedbackId);
-        $feedback->delete();
-        // Livewire will automatically re-render the component
+        $feedback->status = $status;
+        $feedback->save();
     }
 
     public function render()
