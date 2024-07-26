@@ -21,6 +21,12 @@ class FeedbackDisplay extends Component
         $feedback->save();
     }
 
+    public function delete($feedbackId)
+    {
+        $feedback = Feedback::findOrFail($feedbackId);
+        $feedback->delete();
+    }
+
     public function render()
     {
         $feedbacks = Feedback::where('feedbackboard_id', $this->feedbackboard_id)->get();

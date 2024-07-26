@@ -5,28 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survefy | Create products that matters - @yield('title')</title>
-    <link href="../../../../public/build/.vite/manifest.json" rel="manifest">
-    {{-- <link href="public/build/manifest.json" rel="manifest"> --}}
-    <link href="../../../../resources/css/app.css" rel="stylesheet">
-    {{-- <link href="resources/css/app.css" rel="stylesheet"> --}}
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles()
-        <!-- Other head content -->
-        @livewireScripts
 
-<!-- Favicon -->
-<link rel="shortcut icon" href="{{ asset('survefyLogo.png') }}">
+    <!-- Vite CSS and JS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    @livewireStyles()
+    <!-- Other head content -->
+    @livewireScripts
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('survefyLogo.png') }}">
 </head>
 <body>
 
     @if (Route::has('login'))
         @auth
-            @include('livewire.authnavbar') <!-- navigation bar for authenticated users -->
+            {{-- @include('livewire.authnavbar') <!-- navigation bar for authenticated users --> --}}
         @else
-            @include('livewire.guest.navigation') <!-- navigation bar for guests -->
+            {{-- @include('livewire.guest.navigation') <!-- navigation bar for guests --> --}}
         @endauth
     @endif
 
@@ -34,9 +30,9 @@
         @yield('content')
     </main>
 
-    @guest
+    {{-- @guest
             @include('livewire.guest.footer') <!-- this footer is only visible for guest -->
-    @endguest
+    @endguest --}}
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 </html>

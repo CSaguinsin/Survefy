@@ -2,8 +2,8 @@
 @section('title', 'Dashboard')
 @section('content')
 
-
-    <div class="flex flex-row space-x-8 mx-auto pt-[5rem] max-w-[70rem]">
+@include('livewire.authnavbar')
+    <div class="lg:flex lg:flex-row lg:mx-auto space-x-6  pt-[5rem]  lg:max-w-[90rem] md:w-[60rem] md:ml-10 sm:flex sm:flex-col">
         <livewire:add-feedback-board />
         <livewire:boards />
     </div>

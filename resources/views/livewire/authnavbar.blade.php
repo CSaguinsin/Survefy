@@ -44,14 +44,16 @@ new class extends Component
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <div class="pl-2">
-                        <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Logout
+                        <button type="submit" class="btn btn-error text-white">Logout
                         </button>
                     </div>
                 </form>
+                <div class="pl-2 pt-2">
+                    <a href="http://127.0.0.1:8000/public/feedback/9">
+                            <button class="btn btn-ghost text-left">Got a Feedback for Survefy?</button>
+                    </a>
+                </div>
 
-                <li>
-                    <a>💡Feedback for Survefy?</a>
-                </li>
             </ul>
         </div>
     </div>

@@ -7,8 +7,8 @@
                     <p class="mb-2 text-5 text-gray-900 dark:text-white">{{ $feedback->feedback }}</p>
                 </a>
             </div>
-            @auth
             <div class="flex flex-col space-y-6 pr-8px ml-auto">
+                @auth
                 <details class="dropdown" x-data="{ summaryText: '{{ $feedback->status }}' }" x-ref="dropdown">
                     <summary class="btn m-1" x-text="summaryText">⭐ Options</summary>
                     <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -20,12 +20,10 @@
                 <button wire:click="delete({{ $feedback->id }})" class="btn btn-ghost">
                     ❌ Delete
                 </button>
-            </div>
-            @else
-            <div class="flex flex-col pr-8px ml-auto">
+                @else
                 <p class="mb-2 text-5 text-gray-900 dark:text-white">{{ $feedback->status }}</p>
+                @endauth
             </div>
-            @endauth
         </div>
     @endforeach
 </div>
