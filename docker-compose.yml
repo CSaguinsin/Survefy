@@ -1,5 +1,3 @@
-
-
 services:
   web:
     image: app-name:latest
@@ -13,7 +11,8 @@ services:
     volumes:
       - .:/var/www/html
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     platform: "linux/amd64"
@@ -23,12 +22,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 volumes:
   dbdata:

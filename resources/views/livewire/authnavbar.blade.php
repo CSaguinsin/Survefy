@@ -49,7 +49,7 @@ new class extends Component
                     </div>
                 </form>
                 <div class="pl-2 pt-2">
-                    <a href="http://127.0.0.1:8000/public/feedback/9">
+                    <a href="http://127.0.0.1:8000/public/feedback/9" target="_blank">
                             <button class="btn btn-ghost text-left">Got a Feedback for Survefy?</button>
                     </a>
                 </div>
