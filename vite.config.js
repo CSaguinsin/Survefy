@@ -9,7 +9,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'build', // Change this to 'build' since it's now at the root
+        outDir: 'public/build', // Ensure this is set to 'public/build'
         rollupOptions: {
             output: {
                 entryFileNames: 'assets/[name]-[hash].js',

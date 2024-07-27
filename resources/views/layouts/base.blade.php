@@ -16,7 +16,12 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @if (app()->environment('local'))
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @else
+            <link href="{{ asset('build/assets/app-CrDVhsnp.css ') }}" rel="stylesheet">
+            <script src="{{ asset('build/assets/app-KEEtJs3M.js') }}"></script>
+        @endif
         @livewireStyles
         @livewireScripts
 
