@@ -5,7 +5,8 @@
         <div class="flex items-center space-x-2">
             <div class="tooltip" data-tip="Copy Link">
                 <button class="btn p-0 w-[2rem]" onclick="copyToClipboard()">
-                    <img src="{{ asset('assets/elements/copyLink.png') }}" alt="feature1" class="w-6 h-6" />
+                    <img src="../../../../assets/elements/copyLink.png" alt="feature1" class="w-6 h-6" />
+
                 </button>
             </div>
             <input type="text" id="publicLink" class="input input-bordered w-[30rem] max-w-xs" value="{{ route('public.feedback', ['boardId' => $boardId]) }}" readonly>

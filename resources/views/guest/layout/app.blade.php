@@ -7,24 +7,24 @@
     <title>Survefy | Create products that matter - @yield('title')</title>
 
     @if (app()->environment('local'))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <link href="{{ asset('build/assets/app-CrDVhsnp.css') }}" rel="stylesheet">
-        <script src="{{ asset('build/assets/app-KEEtJs3M.js') }}" defer></script>
-    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@else
+    @php
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+    @endphp
+    <link href="../../../../build/assets/app-CrDVhsnp.css" rel="stylesheet">
+@endif
+
 
     @livewireStyles()
-    <!-- Other head content -->
-
-    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('survefyLogo.png') }}">
 </head>
 <body>
     @if (Route::has('login'))
         @auth
-            {{-- @include('livewire.authnavbar') <!-- navigation bar for authenticated users --> --}}
+            {{-- @include('livewire.authnavbar') --}}
         @else
-            {{-- @include('livewire.guest.navigation') <!-- navigation bar for guests --> --}}
+            {{-- @include('livewire.guest.navigation') --}}
         @endauth
     @endif
 
@@ -33,10 +33,11 @@
     </main>
 
     @guest
-        {{-- @include('livewire.guest.footer') <!-- this footer is only visible for guest --> --}}
+        {{-- @include('livewire.guest.footer') --}}
     @endguest
 
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="../../../../build/assets/app-KEEtJs3M.js" defer></script>
 </body>
 </html>
