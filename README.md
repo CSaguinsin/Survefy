@@ -27,6 +27,16 @@ Choosing the TALL stack was a deliberate decision to ensure that Survefy embodie
 # UI Design ✍🎨
 When I'm designing a software first I visualize what would be the color palettes, fonts, typography and I'm also using the 8 point grid system for sizing, spacing, and laying out components relative to one another. This means that any padding, margin, button height, etc. is always a multiple of 8 pixels.
 
+
+# Features 🎯
+Easy Survey Creation: Deploy feedback boards effortlessly with our intuitive interface. No technical skills required!
+<br />
+Real-Time Feedback: Collect and analyze user feedback in real-time to make informed decisions quickly.
+<br />
+CRUD Operations: Easily manage your surveys and feedback boards with full Create, Read, Update, and Delete capabilities.
+<br />
+Multi-Platform Support: Reach your audience wherever they are, with support for web and mobile surveys.
+
 # How to run the project ❓
 1.) Clone the Repository:
    - Navigate to the directory where you want to clone the project.
